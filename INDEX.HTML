@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qual Kuami de Miraculous você teria?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #6200ea;
+      color: white;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #3700b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #6200ea;
+    }
+    #kuami-img {
+      margin-top: 10px;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Descubra seu Kuami de Miraculous!</h1>
+    <p>Responda às perguntas e descubra qual Kuami combina com você!</p>
+
+    <form id="quizForm">
+      <p>1. Qual dessas qualidades mais combina com você?</p>
+      <select id="question1">
+        <option value="criatividade">Criatividade</option>
+        <option value="humor">Humor</option>
+        <option value="lealdade">Lealdade</option>
+        <option value="sabedoria">Sabedoria</option>
+        <option value="emoção">Emoção</option>
+        <option value="persistência">Persistência</option>
+      </select>
+
+      <p>2. O que você valoriza mais?</p>
+      <select id="question2">
+        <option value="amizade">Amizade</option>
+        <option value="coragem">Coragem</option>
+        <option value="estratégia">Estratégia</option>
+        <option value="proteção">Proteção</option>
+        <option value="expressividade">Expressividade</option>
+        <option value="resiliência">Resiliência</option>
+      </select>
+<br>
+      <button type="button" onclick="getKuami()">Descobrir Meu Kuami</button>
+    </form>
+
+    <div id="result"></div>
+    <img id="kuami-img" src="" alt="Kuami">
+  </div>
+
+  <script>
+    let kuamiSelecionado = '';
+
+    function getKuami() {
+      if (kuamiSelecionado) {
+        document.getElementById('result').innerText = kuamiSelecionado;
+        return;
+      }
+
+      const kuamis = {
+        criatividade: { name: 'Tikki - Criatividade e Bondade!', img: 'tikki.png' },
+        humor: { name: 'Plagg - Humor e Mistério!', img: 'plagg.png' },
+        lealdade: { name: 'Nooroo - Lealdade e Serenidade!', img: 'nooroo.png' },
+        sabedoria: { name: 'Wayzz - Sabedoria e Proteção!', img: 'wayzz.png' },
+        emoção: { name: 'Duusu - Emoção e Expressividade!', img: 'duusu.png' },
+        persistência: { name: 'Fluff - Persistência e Determinação!', img: 'fluff.png' },
+        amizade: { name: 'Ziggy - Doçura e Amizade!', img: 'ziggy.png' },
+        coragem: { name: 'Roaar - Coragem e Força!', img: 'roaar.png' },
+        estratégia: { name: 'Sass - Paciência e Estratégia!', img: 'sass.png' },
+        proteção: { name: 'Barkk - Lealdade e Companheirismo!', img: 'barkk.png' },
+        expressividade: { name: 'Mullo - Expressividade e Curiosidade!', img: 'mullo.png' },
+        resiliência: { name: 'Kaalki - Resiliência e Confiança!', img: 'kaalki.png' }
+      };
+
+      const resposta1 = document.getElementById('question1').value;
+      const resposta2 = document.getElementById('question2').value;
+
+      const kuami = kuamis[resposta1] || kuamis[resposta2];
+      kuamiSelecionado = kuami.name;
+
+      document.getElementById('result').innerText = `Seu Kuami é: ${kuami.name}`;
+      document.getElementById('kuami-img').src = kuami.img;
+      document.getElementById('kuami-img').alt = kuami.name;
+    }
+  </script>
+</body>
+</html>
+
